@@ -35,6 +35,7 @@ func main() {
 		panic("Error opening connection " + err.Error())
 	}
 
+	// Add handler for status updates
 	dg.AddHandler(updatedStatus)
 
 	log.Info("Bot is now running.  Press CTRL-C to exit.")
