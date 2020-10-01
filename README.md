@@ -5,7 +5,7 @@ ScanStatus checks that users aren't using 'bad words' in their statuses, and if 
 `.env` template:
 ```
 TOKEN=
-BADWORDS=tweetcord,bleppers
-ALERTCHANNEL=726928345513852979
+BADWORDS=
+ALERTCHANNEL=
 ```
 Notes: `TOKEN` must be a Discord Bot token. `BADWORDS` is a comma seperated list of badwords (in lower case!), for example: `bleppers,example,oink`. `ALERTCHANNEL` is the Channel ID of the channel to post alerts.
