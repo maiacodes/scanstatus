@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
@@ -36,7 +37,7 @@ func updatedStatus(s *discordgo.Session, m *discordgo.PresenceUpdate) {
 		for _, word := range badWords {
 			if strings.Contains(status, word) {
 				// Do something
-				log.Warn("Bad word `", word, "` in status by ", m.User.ID)
+				dispatchAlert(fmt.Sprintf("Bad word `%v` in status by <@%v>", word, m.User.ID), s)
 			}
 		}
 
