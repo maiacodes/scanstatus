@@ -1,2 +1,5 @@
 .env
 scanstatus
+scanstatus-linux
+scanstatus-macos
+scanstatus-windows.exe
