@@ -3,11 +3,17 @@ package main
 import (
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
+)
+
+var (
+	badWords   []string
+	userStatus map[string]string
 )
 
 func main() {
@@ -19,7 +25,9 @@ func main() {
 	}
 
 	// Load bad words
-	loadBadWords()
+	envWords := os.Getenv("BADWORDS")
+	badWords = strings.Split(envWords, ",")
+	userStatus = make(map[string]string)
 
 	dg, err := discordgo.New("Bot " + os.Getenv("TOKEN"))
 	if err != nil {
@@ -35,8 +43,9 @@ func main() {
 		panic("Error opening connection " + err.Error())
 	}
 
-	// Add handler for status updates
+	// Add handler for status updates and commands
 	dg.AddHandler(updatedStatus)
+	dg.AddHandler(messageCreate)
 
 	log.Info("Bot is now running.  Press CTRL-C to exit.")
 

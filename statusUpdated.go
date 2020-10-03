@@ -5,20 +5,9 @@ import (
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	log "github.com/sirupsen/logrus"
-)
-
-var (
-	userStatus map[string]string
 )
 
 func updatedStatus(s *discordgo.Session, m *discordgo.PresenceUpdate) {
-	// If map doesn't exist yet, make it.
-	if userStatus == nil {
-		userStatus = make(map[string]string)
-		log.Info("Created map")
-	}
-
 	// If there isn't a game, return
 	if m.Game == nil {
 		return
