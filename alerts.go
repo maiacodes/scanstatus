@@ -19,6 +19,6 @@ func dispatchAlert(alert string, s *discordgo.Session) {
 	_, err := s.ChannelMessageSend(alertChannel, alert)
 	if err != nil {
 		// Catch failed messages
-		log.Error(err.Error())
+		log.Error("Cannot send alert message: ", err.Error())
 	}
 }

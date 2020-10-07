@@ -17,7 +17,7 @@ var (
 )
 
 func main() {
-	log.Info("Starting ScanStatus Bot...")
+	log.Info("Starting TweetShift Utils...")
 
 	err := godotenv.Load()
 	if err != nil {
@@ -46,6 +46,7 @@ func main() {
 	// Add handler for status updates and commands
 	dg.AddHandler(updatedStatus)
 	dg.AddHandler(messageCreate)
+	dg.AddHandler(newChannel)
 
 	log.Info("Bot is now running.  Press CTRL-C to exit.")
 

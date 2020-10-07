@@ -1,3 +1,8 @@
+TweetShift Utils is a utility bot used in the [TweetShift Hub](https://tweetshift.com/support-server) server.
+
+---
+Previously known as scan status:
+
 ScanStatus lets you make sure members of your Discord guild aren't putting bad things in their statuses such as offensive things or other things against the rules of the guild.
 
 ScanStatus checks that users aren't using 'bad words' in their statuses, and if they are, an alert will be sent into a channel of your choice.
